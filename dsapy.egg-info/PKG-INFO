@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: dsapy
+Version: 0.0.0
+Summary: 
+    Package With Basic Data Structures Implementation.
+    
+Home-page: https://github.com/GoldExplosion
+Author: GoldExplosion
+Author-email: jivitesh.vit@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Engineering
+Classifier: Topic :: Engineering :: Data Structures
+Requires-Python: >=3.6
