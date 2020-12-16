@@ -175,9 +175,9 @@ class SinglyLinkedList():
         self.count += 1
 
     def display(self):
-        for i in range(count-2):
-            print(curr.data + "->")
-            curr = curr.next
-        print(curr.data+"\n")
+        for i in range(self.count-1):
+            print(str(self.curr.data) + "->", end="")
+            self.curr = self.curr.next
+        print(str(self.curr.data)+"\n")
         self.curr = self.head
 

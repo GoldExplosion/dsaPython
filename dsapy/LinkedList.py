@@ -59,8 +59,8 @@ class SinglyLinkedList():
         I: int (index to be inserted)
             inserting a node in the linked list.
 
-    remove(N):
-        N: Node
+    remove(I):
+        I: int (index to be removed)
             remove a node from the linked list.
 
     delete():
@@ -91,6 +91,11 @@ class SinglyLinkedList():
         self.end = X
         self.count+=1
 
+    def add(self,N):
+        self.end.next = N
+        self.end = N
+        self.count += 1
+ 
     def insert(self, N, I):
         # checks if the index is out of bound
         if I < 0:
@@ -98,16 +103,16 @@ class SinglyLinkedList():
             return
         # edge case: to add the node to the begining  
         if I == 0:
-            addH(N)
+            self.addH(N)
             return 
         # checks if the index is out of bound
-        if I > count-1: 
+        if I > self.count: 
             print("Error: Index is out of bound\n")
             return
         
         # edge case: to add the node to the end
-        if I == count-1:
-            add(N)
+        if I == self.count:
+            self.add(N)
             return 
 
         # insertion in the middle of the linked list
@@ -136,6 +141,7 @@ class SinglyLinkedList():
             else:
                 self.head = self.head.next
                 self.count -= 1
+                self.curr = self.head
             return 
         # checks if the index is out of bound
         if I > self.count-1: 
@@ -148,6 +154,7 @@ class SinglyLinkedList():
                 self.curr = self.curr.next
             self.end = curr
             self.count -= 1
+            self.curr = self.head
             return 
 
         for i in range(I-1):
@@ -164,15 +171,12 @@ class SinglyLinkedList():
         self.count = 0
         self.curr = None
 
-    def add(self,N):
-        self.end.next = N
-        self.end = N
-        self.count += 1
-    
+   
     def addH(self,N):
         N.next = self.head
         self.head = N
         self.count += 1
+        self.curr = self.head
 
     def display(self):
         for i in range(self.count-1):
