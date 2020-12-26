@@ -14,6 +14,8 @@ class Node:
     prev: Node (default none)
             the previout node
 
+    root: Node (default none)
+            the parent Node
     METHODS
     =======
     
@@ -22,6 +24,7 @@ class Node:
 
     """
     def __init__(self,data=None):
+        self.root = None
         self.data = data
         self.next = None
         self.prev = None
