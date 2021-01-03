@@ -1,92 +1,101 @@
-from dsapy.Queue import Queue
-import math
-
-def Node():
-    def __init__(self, data = None, parent = None):
-        self.data = data 
-        self.left = None 
-        self.right = None
-
-def Heap():
+class Heap():
     """
-    Min Heap Class
+    Min. Heap Class.
 
-    ATTRIBUTES
+    PARAMETERS
     ==========
 
-    data: int
-
-    left: Heap
-        left child
-
-    right: Heap
-        right child
+    arr: list
+        heap array
 
     METHODS
     =======
 
-    push():
+    parent(n):
         PARAMETERS
-        ==========takeuchi
+        ==========
         n: int
-            data to be pushed into the heap.
+            index position of the child.
         
         RETURNS
         =======
+        int
+            parent index position.
+        
+        to find the parent index position.
+    push(n):
+        PARAMETERS
+        ==========
+        n: int 
+            data to be pushed.
 
+        RETURNS
+        =======
         None
+            to append a data point to the 
+            heap list.
 
     pop():
         PARAMETERS
         ==========
 
-        None
-
         RETURNS
         =======
 
-        int
-            the data on 
+    heapify():
+
+    swap():
+
+    heap_append():
+
+    climb():
     """
 
-    def __init__(self):
-        self.que = Queue()
-        self.root = None
-        self.count = 0
-    
-    def height():
-        return math.ceil(math.log2(self.count+1)) - 1
+    def __init__(self, arr=[]):
+        self.arr = arr
 
-    def push(n):
-        if self.root is None:
-            self.root = Node(n)
-            count += 1
-            return
-        
-        self.que.push(self.root)
-        while(!self.que.isempty()):
-            temp = self.que.pop()
-            if temp is None:
-                temp = Node(n)
-                count+=1
-                self.que = Queue()
-                return
-            self.que.push(temp.left)
-            self.que.push(temp.right)
+    def push(self,n):
+        self.arr.append(n)
     
-    def pop():
-        pop_que = Queue()
-        if self.root is None:
-            return self.root 
+    def pop(self):
+        var = self.arr[-1]
+        del self.arr[-1]
+        return var
 
-        N = self.height()
-        curr = self.root
-        for i in range(N-1):
-            curr = curr.left
-        
-        self.que.push(self.root)
-        temp1 = self.root 
-        while(!self.que.isempty()):
-            temp = self.que.pop()
-            if temp is None:
-                
+    def parent(self,n):
+        if n%2 !=0:
+            return (n-1)/2
+        else: return (n-2)/2
+    
+    def swap(self,a,b):
+        temp = self.arr[b]
+        self.arr[b] = self.arr[a]
+        self.arr[a] = temp 
+
+    def parent(self,n):
+        if n%2 !=0:
+            return (n-1)//2
+        else: return (n-2)//2
+    
+    def climb(self, k):
+        curr = self.arr[k]
+        par = self.parent(k)
+        if  par<0:
+            return 
+        if self.arr[par] > curr:
+            self.swap(par, k)
+            self.climb(par)
+    
+    def heap_append(self, n):
+        self.push(n)
+        last = len(self.arr) -1
+        self.climb(last)
+    
+    def heapify(self):
+        temp = Heap()
+        while(not len(self.arr)==0):
+            var = self.pop()
+            temp.heap_append(var)
+        self.arr = temp.arr 
+
+
