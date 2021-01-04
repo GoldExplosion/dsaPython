@@ -1,10 +1,10 @@
 from dsapy.Stack import Stack
 
-S = Stack()
+
 
 l = [1,"boy",2,'k',5]
 
-S.create(l)
+S = Stack(l)
 
 print(S.pop())
 
