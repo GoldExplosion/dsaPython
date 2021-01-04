@@ -16,10 +16,6 @@ class Stack():
     METHODS
     =======
 
-    create(arr):
-        arr: list
-            initializes the list as stack array.
-
     push(Data):
         Data: any type
             adds Data to the top of the stack array.
@@ -28,24 +24,7 @@ class Stack():
             returns the top most element.
     """
 
-    def __init__(self, arr=None):
-        self.arr = arr
-
-    def create(self, arr):
-        """
-        initializes the stack array.
-        
-        PARAMETERS
-        ==========
-        
-        arr: list
-            an empty list or a list containing data
-
-        RETURNS
-        =======
-
-        None
-        """
+    def __init__(self, arr=[]):
         self.arr = arr
         self.top = len(self.arr) - 1
     

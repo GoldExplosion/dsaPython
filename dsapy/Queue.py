@@ -32,6 +32,16 @@ class Queue():
         first data element
         
             pops the first data element
+    isempty():
+        parameters
+        ==========
+        None
+
+        returns
+        =======
+        Boolean
+
+            returns true if empty else false.
     """
     def __init__(self, que=[]):
         self.que = que

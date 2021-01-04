@@ -2,7 +2,7 @@ class Hash():
     """
     Hash class
     
-    PARAMETERS
+    ATTRIBUTES
     ==========
     hashTable: list
 
